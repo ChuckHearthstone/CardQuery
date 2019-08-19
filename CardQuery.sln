@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoConcede", "AutoConcede\AutoConcede.csproj", "{F60514D3-C789-4A4D-8530-D994A404729E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardQuery", "CardQuery\CardQuery.csproj", "{79E47C73-25AB-46F6-82F7-0588CF5C4779}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpCodeProviderTest", "CSharpCodeProviderTest\CSharpCodeProviderTest.csproj", "{91AAD488-CEFE-4206-88B4-34EBDAD40761}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F60514D3-C789-4A4D-8530-D994A404729E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F60514D3-C789-4A4D-8530-D994A404729E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F60514D3-C789-4A4D-8530-D994A404729E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F60514D3-C789-4A4D-8530-D994A404729E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{79E47C73-25AB-46F6-82F7-0588CF5C4779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{79E47C73-25AB-46F6-82F7-0588CF5C4779}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79E47C73-25AB-46F6-82F7-0588CF5C4779}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79E47C73-25AB-46F6-82F7-0588CF5C4779}.Release|Any CPU.Build.0 = Release|Any CPU
-		{91AAD488-CEFE-4206-88B4-34EBDAD40761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{91AAD488-CEFE-4206-88B4-34EBDAD40761}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{91AAD488-CEFE-4206-88B4-34EBDAD40761}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{91AAD488-CEFE-4206-88B4-34EBDAD40761}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
