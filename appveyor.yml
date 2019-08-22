@@ -1,0 +1,34 @@
+platform: Any CPU
+
+configuration:
+- Debug
+- Release
+
+image: Visual Studio 2019
+
+nuget:
+  account_feed: false
+  project_feed: true
+  disable_publish_on_pr: true
+
+before_build:
+- nuget restore CardQuery.sln
+
+build_script:
+- msbuild CardQuery.sln /v:minimal /p:ResolveNuGetPackages=false "/logger:%ProgramFiles%\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+
+after_build:
+- 7z a ILSpy_binaries.zip %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\net472\*.dll %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\net472\*.exe %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\net472\*.config 
+
+for:
+- branches:
+    except:
+      - master
+  artifacts:
+    #nothing
+- branches:
+    only:
+      - master
+  artifacts:
+    - path: CardQuery.zip
+      name: CardQuery %APPVEYOR_REPO_BRANCH% %ILSPY_VERSION_NUMBER% binaries
