@@ -18,7 +18,7 @@ build_script:
 - msbuild CardQuery.sln /v:minimal /p:ResolveNuGetPackages=false "/logger:%ProgramFiles%\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
 after_build:
-- 7z a ILSpy_binaries.zip %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\net472\*.dll %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\net472\*.exe %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\net472\*.config 
+- 7z a CardQuery.zip %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.dll %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.exe %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.config 
 
 for:
 - branches:
