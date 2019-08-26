@@ -66,10 +66,10 @@ namespace CardQuery
                 return;
             }
 
-            var cardList = Cards.GetFromFuzzyName(name, Locale.zhCN);
+            var cardList = Cards.GetFromFuzzyName(name, Locale.zhCN, false);
             if (cardList.Count == 0)
             {
-                cardList = Cards.GetFromFuzzyName(name, Locale.enUS);
+                cardList = Cards.GetFromFuzzyName(name, Locale.enUS, false);
             }
 
             if (cardList == null || cardList.Count == 0)
