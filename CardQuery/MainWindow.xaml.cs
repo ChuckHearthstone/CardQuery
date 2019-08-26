@@ -94,7 +94,12 @@ namespace CardQuery
             var item = ListViewCardList.SelectedItem;
             if (item is CardName cardName)
             {
-                var card = Cards.GetFromName(cardName.zhCN, Locale.zhCN);
+                var card = Cards.GetFromName(cardName.zhCN, Locale.zhCN, false);
+                if (card == null)
+                {
+                    MessageBox.Show($"Can not find card with name {cardName.zhCN}");
+                    return;
+                }
                 TextBoxCardInfo.Text = GetCardInfo(card);
             }
         }
