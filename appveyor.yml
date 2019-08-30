@@ -41,5 +41,5 @@ for:
     only:
       - master
   artifacts:
-    - path: CardQuery-$env:zip_file.zip
-      name: CardQuery $env:zip_file %APPVEYOR_REPO_BRANCH% binaries
+    - path: CardQuery-%zip_file%.zip
+      name: CardQuery %zip_file% %APPVEYOR_REPO_BRANCH% binaries
