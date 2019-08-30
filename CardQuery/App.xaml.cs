@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Reflection;
+using System.Windows;
 
 namespace CardQuery
 {
@@ -25,7 +26,8 @@ namespace CardQuery
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
-            mainWindow.Title = "Card Query For Hearthstone";
+            string version= Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            mainWindow.Title = $"Card Query For Hearthstone (Version {version})";
             mainWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             mainWindow.Show();
         }
