@@ -25,7 +25,7 @@ namespace CardQuery
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
-            mainWindow.Title = "Card Query For Hearthstone (QQGroup 414676683)";
+            mainWindow.Title = "Card Query For Hearthstone";
             mainWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             mainWindow.Show();
         }

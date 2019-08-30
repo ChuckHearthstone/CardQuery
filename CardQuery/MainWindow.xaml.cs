@@ -53,7 +53,10 @@ namespace CardQuery
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("https://github.com/ChuckHearthBuddy/CardQuery");
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine("QQGroup: 414676683");
+            stringBuilder.AppendLine("GitHub: https://github.com/ChuckHearthBuddy/CardQuery");
+            MessageBox.Show(stringBuilder.ToString());
         }
 
         private void ButtonCardName_Click(object sender, RoutedEventArgs e)
