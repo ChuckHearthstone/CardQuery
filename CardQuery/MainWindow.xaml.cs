@@ -56,6 +56,7 @@ namespace CardQuery
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine("QQGroup: 414676683");
             stringBuilder.AppendLine("GitHub: https://github.com/ChuckHearthBuddy/CardQuery");
+            stringBuilder.AppendLine("Blog: https://www.cnblogs.com/chucklu/category/1519356.html");
             MessageBox.Show(stringBuilder.ToString());
         }
 
