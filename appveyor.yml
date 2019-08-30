@@ -13,9 +13,6 @@ nuget:
   project_feed: true
   disable_publish_on_pr: true
   
-environment:
-  version: value
-
 before_build:
 - nuget restore CardQuery.sln
 
