@@ -1,7 +1,6 @@
 platform: Any CPU
 
 configuration:
-- Debug
 - Release
 
 image: Visual Studio 2019
@@ -10,6 +9,9 @@ nuget:
   account_feed: false
   project_feed: true
   disable_publish_on_pr: true
+  
+environment:
+  version: value
 
 before_build:
 - nuget restore CardQuery.sln
@@ -18,7 +20,8 @@ build_script:
 - msbuild CardQuery.sln /v:minimal /p:ResolveNuGetPackages=false "/logger:%ProgramFiles%\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
 after_build:
-- 7z a CardQuery.zip %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.dll %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.exe %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.config 
+  - 7z a CardQuery.zip %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.dll %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.exe %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.config 
+  - ps: $env:version = (Get-Item %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\CardQuery.exe).VersionInfo.FileVersion
 
 for:
 - branches:
@@ -31,4 +34,4 @@ for:
       - master
   artifacts:
     - path: CardQuery.zip
-      name: CardQuery %APPVEYOR_REPO_BRANCH% %ILSPY_VERSION_NUMBER% binaries
+      name: CardQuery %APPVEYOR_REPO_BRANCH% $env:version binaries
