@@ -51,7 +51,7 @@ namespace CardQuery
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("QQGroup 146605007(Author: Chuck Lu)");
+            MessageBox.Show("https://github.com/ChuckHearthBuddy/CardQuery");
         }
 
         private void ButtonCardName_Click(object sender, RoutedEventArgs e)
