@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Navigation;
 
 namespace CardQuery
 {
@@ -52,7 +54,14 @@ namespace CardQuery
             Hyperlink hyperlink = new Hyperlink();
             hyperlink.NavigateUri = new Uri(url);
             hyperlink.Inlines.Add(text);
+            hyperlink.RequestNavigate += Hyperlink_RequestNavigate;
             return hyperlink;
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
     }
 }
