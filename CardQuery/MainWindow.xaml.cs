@@ -138,7 +138,11 @@ namespace CardQuery
             var item = ListViewCardList.SelectedItem;
             if (item is CardName cardName)
             {
-                MessageBox.Show(cardName.CardId);
+                Clipboard.SetText(cardName.CardId);
+            }
+            else
+            {
+                MessageBox.Show("Please select a card first!");
             }
         }
     }
