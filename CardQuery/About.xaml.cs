@@ -31,10 +31,11 @@ namespace CardQuery
         private void AddContent()
         {
             TextBlock textBlock = new TextBlock();
-            textBlock.Text = "Chuck";
+            textBlock.Text = "This tool is written by Chuck Lu";
             foreach (var item in dictionary)
             {
                 var link = GetHyperlink(item.Key, item.Value);
+                textBlock.Inlines.Add(Environment.NewLine);
                 textBlock.Inlines.Add(link);
             }
             MainStackPanel.Children.Add(textBlock);
@@ -44,6 +45,7 @@ namespace CardQuery
         {
             Hyperlink hyperlink = new Hyperlink();
             hyperlink.NavigateUri = new Uri(url);
+            hyperlink.Inlines.Add(text);
             return hyperlink;
         }
     }
