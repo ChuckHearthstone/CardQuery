@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 using System.Windows;
-using System.Windows.Controls;
+using System.Windows.Input;
 using HearthDb;
 using HearthDb.Enums;
 using Newtonsoft.Json;
@@ -29,7 +27,7 @@ namespace CardQuery
             return stringBuilder.ToString();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonCardId_Click(object sender, RoutedEventArgs e)
         {
             TextBoxCardInfo.Clear();
             ListViewCardList.Items.Clear();
@@ -100,7 +98,7 @@ namespace CardQuery
             ListViewCardList.Items.Add(cardName);
         }
 
-        private void ListViewCardList_PreviewMouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ListViewCardList_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             var item = ListViewCardList.SelectedItem;
             if (item is CardName cardName)
@@ -113,6 +111,26 @@ namespace CardQuery
                 }
                 TextBoxCardInfo.Text = GetCardInfo(card);
             }
+        }
+
+        private void TextBoxCardId_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key != Key.Enter)
+            {
+                return;
+            }
+
+            ButtonCardId_Click(null, null);
+        }
+
+        private void TextBoxCardName_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key != Key.Enter)
+            {
+                return;
+            }
+
+            ButtonCardName_Click(null, null);
         }
     }
 }
