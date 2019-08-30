@@ -1,3 +1,6 @@
+init:
+- ps: Update-AppveyorBuild -Version "$(Get-Date -format yyyy.MM.dd).$env:appveyor_build_number"
+
 platform: Any CPU
 
 configuration:
@@ -25,7 +28,7 @@ assembly_info:
   assembly_version: '{version}'
 
 after_build:
-  - 7z a CardQuery-%assembly_version%.zip %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.dll %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.exe %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.config 
+  - 7z a CardQuery-${version}.zip %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.dll %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.exe %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.config 
 
 for:
 - branches:
@@ -37,5 +40,5 @@ for:
     only:
       - master
   artifacts:
-    - path: CardQuery-$(assembly_version).zip
-      name: CardQuery $(assembly_version) %APPVEYOR_REPO_BRANCH% binaries
+    - path: CardQuery-${version}.zip
+      name: CardQuery $(version) %APPVEYOR_REPO_BRANCH% binaries
