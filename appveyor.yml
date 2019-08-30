@@ -1,5 +1,5 @@
 environment:
-  zip_file:""
+  zip_file: ""
 
 init:
 - ps: Update-AppveyorBuild -Version "$(Get-Date -format yyyy.MM.dd).$env:appveyor_build_number"
