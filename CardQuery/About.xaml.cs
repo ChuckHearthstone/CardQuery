@@ -18,21 +18,23 @@ namespace CardQuery
             AddContent();
         }
 
-        private Dictionary<string,string> dictionary;
+        private Dictionary<string,string> _dictionary;
 
         private void InitDictionary()
         {
-            dictionary = new Dictionary<string, string>();
-            dictionary.Add("QQGroup", "https://jq.qq.com/?_wv=1027&k=5ecq1Hn");
-            dictionary.Add("GitHub", "https://github.com/ChuckHearthBuddy/CardQuery");
-            dictionary.Add("Blog", "https://www.cnblogs.com/chucklu/category/1519356.html");
+            _dictionary = new Dictionary<string, string>
+            {
+                {"QQGroup", "https://jq.qq.com/?_wv=1027&k=5ecq1Hn"},
+                {"GitHub", "https://github.com/ChuckHearthBuddy/CardQuery"},
+                {"Blog", "https://www.cnblogs.com/chucklu/category/1519356.html"}
+            };
         }
 
         private void AddContent()
         {
             TextBlock textBlock = new TextBlock();
             textBlock.Text = "This tool is written by Chuck Lu";
-            foreach (var item in dictionary)
+            foreach (var item in _dictionary)
             {
                 var link = GetHyperlink(item.Key, item.Value);
                 textBlock.Inlines.Add(Environment.NewLine);
