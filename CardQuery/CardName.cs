@@ -7,5 +7,7 @@
         public string enUS { get; set; }
 
         public int DbfId { get; set; }
+
+        public string CardId { get; set; }
     }
 }

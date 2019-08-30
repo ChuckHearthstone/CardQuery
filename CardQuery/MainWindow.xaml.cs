@@ -84,7 +84,8 @@ namespace CardQuery
                 {
                     zhCN = item.GetLocName(Locale.zhCN),
                     enUS = item.GetLocName(Locale.enUS),
-                    DbfId = item.DbfId
+                    DbfId = item.DbfId,
+                    CardId = item.Id
                 };
                 ListViewCardList.Items.Add(cardName);
             }

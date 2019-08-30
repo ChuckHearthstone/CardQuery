@@ -21,6 +21,7 @@
             <ListView HorizontalAlignment="Left" Height="313" Margin="10,72,0,0" VerticalAlignment="Top" Width="276" Name="ListViewCardList" PreviewMouseLeftButtonUp="ListViewCardList_PreviewMouseLeftButtonUp">
                 <ListView.View>
                     <GridView>
+                        <GridViewColumn Header="CardId" DisplayMemberBinding="{Binding CardId}"/>
                         <GridViewColumn Header="zhCN" DisplayMemberBinding="{Binding zhCN}"/>
                         <GridViewColumn Header="enUS" DisplayMemberBinding="{Binding enUS}"/>
                     </GridView>
