@@ -5,5 +5,7 @@
         public string zhCN { get; set; }
 
         public string enUS { get; set; }
+
+        public int DbfId { get; set; }
     }
 }

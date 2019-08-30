@@ -83,7 +83,8 @@ namespace CardQuery
                 CardName cardName = new CardName
                 {
                     zhCN = item.GetLocName(Locale.zhCN),
-                    enUS = item.GetLocName(Locale.enUS)
+                    enUS = item.GetLocName(Locale.enUS),
+                    DbfId = item.DbfId
                 };
                 ListViewCardList.Items.Add(cardName);
             }
@@ -94,7 +95,7 @@ namespace CardQuery
             var item = ListViewCardList.SelectedItem;
             if (item is CardName cardName)
             {
-                var card = Cards.GetFromName(cardName.zhCN, Locale.zhCN, false);
+                var card = Cards.GetFromDbfId(cardName.DbfId, false);
                 if (card == null)
                 {
                     MessageBox.Show($"Can not find card with name {cardName.zhCN}");
