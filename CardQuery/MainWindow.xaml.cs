@@ -32,6 +32,8 @@ namespace CardQuery
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             TextBoxCardInfo.Clear();
+            ListViewCardList.Items.Clear();
+
             string id = TextBoxCardId.Text.Trim();
             if (string.IsNullOrWhiteSpace(id))
             {
@@ -46,6 +48,8 @@ namespace CardQuery
             }
 
             Card card = Cards.All[id];
+            AddCardToListView(card);
+            ListViewCardList.SelectedIndex = 0;
             TextBoxCardInfo.Text = GetCardInfo(card);
         }
 
@@ -80,15 +84,20 @@ namespace CardQuery
 
             foreach (var item in cardList)
             {
-                CardName cardName = new CardName
-                {
-                    zhCN = item.GetLocName(Locale.zhCN),
-                    enUS = item.GetLocName(Locale.enUS),
-                    DbfId = item.DbfId,
-                    CardId = item.Id
-                };
-                ListViewCardList.Items.Add(cardName);
+                AddCardToListView(item);
             }
+        }
+
+        private void AddCardToListView(Card card)
+        {
+            CardName cardName = new CardName
+            {
+                zhCN = card.GetLocName(Locale.zhCN),
+                enUS = card.GetLocName(Locale.enUS),
+                DbfId = card.DbfId,
+                CardId = card.Id
+            };
+            ListViewCardList.Items.Add(cardName);
         }
 
         private void ListViewCardList_PreviewMouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
