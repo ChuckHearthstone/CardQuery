@@ -19,9 +19,13 @@ before_build:
 build_script:
 - msbuild CardQuery.sln /v:minimal /p:ResolveNuGetPackages=false "/logger:%ProgramFiles%\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
+assembly_info:
+  patch: true
+  file: AssemblyInfo.cs
+  assembly_version: '{version}'
+
 after_build:
-  - 7z a CardQuery.zip %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.dll %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.exe %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.config 
-  - ps: $env:version = (Get-Item %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\CardQuery.exe).VersionInfo.FileVersion
+  - 7z a CardQuery-{version}.zip %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.dll %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.exe %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.config 
 
 for:
 - branches:
@@ -33,5 +37,5 @@ for:
     only:
       - master
   artifacts:
-    - path: CardQuery.zip
-      name: CardQuery %APPVEYOR_REPO_BRANCH% $env:version binaries
+    - path: CardQuery-{version}.zip
+      name: CardQuery {version} %APPVEYOR_REPO_BRANCH% binaries
