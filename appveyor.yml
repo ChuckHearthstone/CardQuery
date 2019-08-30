@@ -37,5 +37,5 @@ for:
     only:
       - master
   artifacts:
-    - path: CardQuery-%APPVEYOR_BUILD_VERSION%.zip
-      name: CardQuery %APPVEYOR_BUILD_VERSION% %APPVEYOR_REPO_BRANCH% binaries
+    - path: CardQuery-"$(Get-Date -format yyyyMMdd)-$env:appveyor_build_number".zip
+      name: CardQuery "$(Get-Date -format yyyyMMdd)-$env:appveyor_build_number" %APPVEYOR_REPO_BRANCH% binaries
