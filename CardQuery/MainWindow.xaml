@@ -19,6 +19,11 @@
             <Button Content="查询" HorizontalAlignment="Left" Margin="211,43,0,0" VerticalAlignment="Top" Width="75" Name="ButtonCardName" Click="ButtonCardName_Click"/>
             <Label Content="卡牌名称" HorizontalAlignment="Left" Margin="8,41,0,0" VerticalAlignment="Top"/>
             <ListView HorizontalAlignment="Left" Height="313" Margin="10,72,0,0" VerticalAlignment="Top" Width="276" Name="ListViewCardList" PreviewMouseLeftButtonUp="ListViewCardList_PreviewMouseLeftButtonUp">
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Copy CardId" Click="MenuItem_OnClick"/>
+                    </ContextMenu>
+                </ListView.ContextMenu>
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="CardId" DisplayMemberBinding="{Binding CardId}"/>

@@ -132,5 +132,14 @@ namespace CardQuery
 
             ButtonCardName_Click(null, null);
         }
+
+        private void MenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            var item = ListViewCardList.SelectedItem;
+            if (item is CardName cardName)
+            {
+                MessageBox.Show(cardName.CardId);
+            }
+        }
     }
 }
