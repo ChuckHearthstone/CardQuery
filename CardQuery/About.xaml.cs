@@ -38,7 +38,11 @@ namespace CardQuery
                 textBlock.Inlines.Add(Environment.NewLine);
                 textBlock.Inlines.Add(link);
             }
-            MainStackPanel.Children.Add(textBlock);
+            MainDockPanel.Children.Add(textBlock);
+            MainDockPanel.HorizontalAlignment = HorizontalAlignment.Stretch;
+            MainDockPanel.VerticalAlignment = VerticalAlignment.Stretch;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            ResizeMode = ResizeMode.NoResize;
         }
 
         private Hyperlink GetHyperlink(string text, string url)
