@@ -74,7 +74,6 @@ namespace CardQuery
 
             Card card = Cards.All[id];
             AddCardToListView(new List<Card> {card});
-            TextBoxCardInfo.Text = GetCardInfo(card);
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -127,6 +126,7 @@ namespace CardQuery
             if (ListViewCardList.Items.Count > 0)
             {
                 ListViewCardList.SelectedIndex = 0;
+                ListViewCardList_PreviewMouseLeftButtonUp(null, null);
             }
         }
 
