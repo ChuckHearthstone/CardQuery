@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
@@ -31,7 +31,9 @@ namespace CardQuery
         private string GetCardInfo(Card card)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            var json = JsonConvert.SerializeObject(card, Formatting.Indented);
+
+            stringBuilder.AppendLine(card.Id);
+
             stringBuilder.AppendLine(card.GetLocName(Locale.enUS));
             stringBuilder.AppendLine(card.GetLocName(Locale.zhCN));
 
@@ -47,6 +49,7 @@ namespace CardQuery
                 stringBuilder.AppendLine(TrimCardText(textInChinese));
             }
 
+            var json = JsonConvert.SerializeObject(card, Formatting.Indented);
             stringBuilder.AppendLine(json);
             return stringBuilder.ToString();
         }
@@ -70,8 +73,7 @@ namespace CardQuery
             }
 
             Card card = Cards.All[id];
-            AddCardToListView(card);
-            ListViewCardList.SelectedIndex = 0;
+            AddCardToListView(new List<Card> {card});
             TextBoxCardInfo.Text = GetCardInfo(card);
         }
 
@@ -105,22 +107,27 @@ namespace CardQuery
                 return;
             }
 
-            foreach (var item in cardList)
-            {
-                AddCardToListView(item);
-            }
+            AddCardToListView(cardList);
         }
 
-        private void AddCardToListView(Card card)
+        private void AddCardToListView(List<Card> cards)
         {
-            CardName cardName = new CardName
+            foreach (var card in cards)
             {
-                zhCN = card.GetLocName(Locale.zhCN),
-                enUS = card.GetLocName(Locale.enUS),
-                DbfId = card.DbfId,
-                CardId = card.Id
-            };
-            ListViewCardList.Items.Add(cardName);
+                CardName cardName = new CardName
+                {
+                    zhCN = card.GetLocName(Locale.zhCN),
+                    enUS = card.GetLocName(Locale.enUS),
+                    DbfId = card.DbfId,
+                    CardId = card.Id
+                };
+                ListViewCardList.Items.Add(cardName);
+            }
+
+            if (ListViewCardList.Items.Count > 0)
+            {
+                ListViewCardList.SelectedIndex = 0;
+            }
         }
 
         private void ListViewCardList_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
