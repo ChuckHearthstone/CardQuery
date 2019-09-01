@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CardQuery"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="540.334" ResizeMode="NoResize">
+        Title="MainWindow" Height="450" Width="540.334" ResizeMode="CanMinimize">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="About" Click="MenuItem_Click"></MenuItem>
