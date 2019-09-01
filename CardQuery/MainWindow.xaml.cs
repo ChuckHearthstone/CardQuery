@@ -18,14 +18,35 @@ namespace CardQuery
             InitializeComponent();
         }
 
+        private string TrimCardText(string text)
+        {
+            var result = text?.Replace("\n", string.Empty);
+            result = result?.Replace("<b>", string.Empty);
+            result = result?.Replace("</b>", string.Empty);
+            result = result?.Replace("<i>", string.Empty);
+            result = result?.Replace("</i>", string.Empty);
+            return result;
+        }
+
         private string GetCardInfo(Card card)
         {
             StringBuilder stringBuilder = new StringBuilder();
             var json = JsonConvert.SerializeObject(card, Formatting.Indented);
             stringBuilder.AppendLine(card.GetLocName(Locale.enUS));
             stringBuilder.AppendLine(card.GetLocName(Locale.zhCN));
-            stringBuilder.AppendLine(card.GetLocText(Locale.enUS)?.Replace("\n", string.Empty));
-            stringBuilder.AppendLine(card.GetLocText(Locale.zhCN));
+
+            var textInEnglish = card.GetLocText(Locale.enUS);
+            if (!string.IsNullOrWhiteSpace(textInEnglish))
+            {
+                stringBuilder.AppendLine(TrimCardText(textInEnglish));
+            }
+
+            var textInChinese = card.GetLocText(Locale.zhCN);
+            if (!string.IsNullOrWhiteSpace(textInChinese))
+            {
+                stringBuilder.AppendLine(TrimCardText(textInChinese));
+            }
+
             stringBuilder.AppendLine(json);
             return stringBuilder.ToString();
         }
