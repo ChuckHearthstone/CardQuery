@@ -24,7 +24,7 @@ namespace CardQuery
             var json = JsonConvert.SerializeObject(card, Formatting.Indented);
             stringBuilder.AppendLine(card.GetLocName(Locale.enUS));
             stringBuilder.AppendLine(card.GetLocName(Locale.zhCN));
-            stringBuilder.AppendLine(card.GetLocText(Locale.enUS).Replace("\n", string.Empty));
+            stringBuilder.AppendLine(card.GetLocText(Locale.enUS)?.Replace("\n", string.Empty));
             stringBuilder.AppendLine(card.GetLocText(Locale.zhCN));
             stringBuilder.AppendLine(json);
             return stringBuilder.ToString();
