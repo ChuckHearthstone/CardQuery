@@ -20,11 +20,16 @@ namespace CardQuery
 
         private string TrimCardText(string text)
         {
-            var result = text?.Replace("\n", string.Empty);
+            var result = text?.Replace("\n", " ");
             result = result?.Replace("<b>", string.Empty);
             result = result?.Replace("</b>", string.Empty);
             result = result?.Replace("<i>", string.Empty);
             result = result?.Replace("</i>", string.Empty);
+            result = result?.Replace("[x]", string.Empty);
+            result = result?.Replace("(", string.Empty);
+            result = result?.Replace(")", string.Empty);
+            result = result?.Replace("（", string.Empty);
+            result = result?.Replace("）", string.Empty);
             return result;
         }
 
