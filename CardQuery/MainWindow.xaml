@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CardQuery"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="540.334" ResizeMode="CanMinimize">
+        Title="MainWindow" Height="505" Width="540.334" ResizeMode="CanMinimize">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="About" Click="MenuItem_Click"></MenuItem>
@@ -14,11 +14,13 @@
             <Label Content="CardId:" HorizontalAlignment="Left" Margin="7,10,0,0" VerticalAlignment="Top"/>
             <TextBox HorizontalAlignment="Left" Height="23" Margin="73,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Name="TextBoxCardId" KeyUp="TextBoxCardId_KeyUp"/>
             <Button Content="Query" HorizontalAlignment="Left" Margin="210,10,0,0" VerticalAlignment="Top" Width="75" Click="ButtonCardId_Click"/>
-            <TextBox HorizontalAlignment="Left" Height="375" Margin="300,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225" Name="TextBoxCardInfo" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+            <TextBox HorizontalAlignment="Left" Height="438" Margin="300,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225" Name="TextBoxCardInfo" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+            <Label Content="CardName:" HorizontalAlignment="Left" Margin="8,41,0,0" VerticalAlignment="Top"/>
             <TextBox HorizontalAlignment="Left" Height="23" Margin="74,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="TextBoxCardName" KeyUp="TextBoxCardName_KeyUp"/>
             <Button Content="Query" HorizontalAlignment="Left" Margin="211,43,0,0" VerticalAlignment="Top" Width="75" Name="ButtonCardName" Click="ButtonCardName_Click"/>
-            <Label Content="CardName:" HorizontalAlignment="Left" Margin="8,41,0,0" VerticalAlignment="Top"/>
-            <ListView HorizontalAlignment="Left" Height="313" Margin="10,72,0,0" VerticalAlignment="Top" Width="276" Name="ListViewCardList" PreviewMouseLeftButtonUp="ListViewCardList_PreviewMouseLeftButtonUp">
+            <Label Content="CardText:" HorizontalAlignment="Left" Margin="7,71,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.553,0.5" />
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="74,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="TextBoxCardText" KeyUp="TextBoxCardText_OnKeyUp"/>
+            <ListView HorizontalAlignment="Left" Height="349" Margin="10,99,0,0" VerticalAlignment="Top" Width="276" Name="ListViewCardList" PreviewMouseLeftButtonUp="ListViewCardList_PreviewMouseLeftButtonUp">
                 <ListView.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="Copy CardId" Click="MenuItem_OnClick"/>

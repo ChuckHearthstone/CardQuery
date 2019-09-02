@@ -177,5 +177,37 @@ namespace CardQuery
                 MessageBox.Show("Please select a card first!");
             }
         }
+
+        private void TextBoxCardText_OnKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key != Key.Enter)
+            {
+                return;
+            }
+
+            TextBoxCardInfo.Clear();
+            ListViewCardList.Items.Clear();
+
+            string text = TextBoxCardText.Text.Trim();
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                MessageBox.Show("Card text should not be empty.");
+                return;
+            }
+
+            var cardList = Cards.GetFromFuzzyText(text, Locale.zhCN, false);
+            if (cardList.Count == 0)
+            {
+                cardList = Cards.GetFromFuzzyText(text, Locale.enUS, false);
+            }
+
+            if (cardList == null || cardList.Count == 0)
+            {
+                MessageBox.Show($"Can not find the card with text {text} in English(en-US) or Chinese(zh-CN)");
+                return;
+            }
+
+            AddCardToListView(cardList);
+        }
     }
 }
