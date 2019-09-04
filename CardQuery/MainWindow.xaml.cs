@@ -39,8 +39,12 @@ namespace CardQuery
 
             stringBuilder.AppendLine(card.Id);
 
-            stringBuilder.AppendLine(card.GetLocName(Locale.enUS));
-            stringBuilder.AppendLine(card.GetLocName(Locale.zhCN));
+            var nameInEnglish = card.GetLocName(Locale.enUS);
+            var nameInChinese = card.GetLocName(Locale.zhCN);
+            stringBuilder.AppendLine($"{nameInChinese}({nameInEnglish})");
+
+            stringBuilder.AppendLine(nameInEnglish);
+            stringBuilder.AppendLine(nameInChinese);
 
             var textInEnglish = card.GetLocText(Locale.enUS);
             if (!string.IsNullOrWhiteSpace(textInEnglish))
@@ -54,6 +58,11 @@ namespace CardQuery
                 stringBuilder.AppendLine(TrimCardText(textInChinese));
             }
 
+            stringBuilder.AppendLine($"{nameof(card.Cost)}:{card.Cost}");
+            stringBuilder.AppendLine($"{nameof(card.Attack)}:{card.Attack}");
+            stringBuilder.AppendLine($"{nameof(card.Health)}:{card.Health}");
+
+            stringBuilder.AppendLine("===split line===");
             var json = JsonConvert.SerializeObject(card, Formatting.Indented);
             stringBuilder.AppendLine(json);
             return stringBuilder.ToString();
