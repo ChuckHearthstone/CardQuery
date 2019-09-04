@@ -30,6 +30,7 @@ namespace CardQuery
             result = result?.Replace(")", string.Empty);
             result = result?.Replace("（", string.Empty);
             result = result?.Replace("）", string.Empty);
+            result = result?.Replace("$", string.Empty);
             return result;
         }
 
