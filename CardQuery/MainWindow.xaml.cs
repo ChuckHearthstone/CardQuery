@@ -81,6 +81,12 @@ namespace CardQuery
                 return;
             }
 
+            var prefix = "Sim_";
+            if (id.StartsWith(prefix))
+            {
+                id = id.Replace(prefix, string.Empty);
+            }
+
             if (!Cards.All.ContainsKey(id))
             {
                 MessageBox.Show($"Can not find the card with id {id}");
