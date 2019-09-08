@@ -62,6 +62,8 @@ namespace CardQuery
             stringBuilder.AppendLine($"{nameof(card.Cost)}:{card.Cost}");
             stringBuilder.AppendLine($"{nameof(card.Attack)}:{card.Attack}");
             stringBuilder.AppendLine($"{nameof(card.Health)}:{card.Health}");
+            stringBuilder.AppendLine($"{nameof(card.Set)}:{card.Set}");
+            stringBuilder.AppendLine($"{nameof(card.Class)}:{card.Class}");
 
             stringBuilder.AppendLine("===split line===");
             var json = JsonConvert.SerializeObject(card, Formatting.Indented);
