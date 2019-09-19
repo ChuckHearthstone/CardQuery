@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
@@ -118,19 +119,35 @@ namespace CardQuery
                 return;
             }
 
+            var dictionary = new Dictionary<string, Card>();
             var cardList = Cards.GetFromFuzzyName(name, Locale.zhCN, false);
-            if (cardList.Count == 0)
+            foreach (var item in cardList)
             {
-                cardList = Cards.GetFromFuzzyName(name, Locale.enUS, false);
+                AddItemToDictionary(dictionary, item);
+            }
+            cardList = Cards.GetFromFuzzyName(name, Locale.enUS, false);
+            foreach (var item in cardList)
+            {
+                AddItemToDictionary(dictionary, item);
             }
 
-            if (cardList == null || cardList.Count == 0)
+            if (dictionary.Count == 0)
             {
                 MessageBox.Show($"Can not find the card with name {name} in English(en-US) or Chinese(zh-CN)");
                 return;
             }
 
+            cardList = dictionary.Values.ToList();
             AddCardToListView(cardList);
+        }
+
+        private void AddItemToDictionary(Dictionary<string, Card> dictionary, Card card)
+        {
+            var cardId = card.Id;
+            if (!dictionary.ContainsKey(cardId))
+            {
+                dictionary.Add(cardId, card);
+            }
         }
 
         private void AddCardToListView(List<Card> cards)
