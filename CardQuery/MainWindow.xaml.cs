@@ -150,8 +150,9 @@ namespace CardQuery
             }
         }
 
-        private void AddCardToListView(List<Card> cards)
+        private void AddCardToListView(List<Card> tempCards)
         {
+            var cards = tempCards.OrderBy(x => x.Cost);
             foreach (var card in cards)
             {
                 CardName cardName = new CardName
@@ -236,18 +237,25 @@ namespace CardQuery
                 return;
             }
 
+            var dictionary = new Dictionary<string, Card>();
             var cardList = Cards.GetFromFuzzyText(text, Locale.zhCN, false);
-            if (cardList.Count == 0)
+            foreach (var item in cardList)
             {
-                cardList = Cards.GetFromFuzzyText(text, Locale.enUS, false);
+                AddItemToDictionary(dictionary, item);
+            }
+            cardList = Cards.GetFromFuzzyText(text, Locale.enUS, false);
+            foreach (var item in cardList)
+            {
+                AddItemToDictionary(dictionary, item);
             }
 
-            if (cardList == null || cardList.Count == 0)
+            if (dictionary.Count == 0)
             {
                 MessageBox.Show($"Can not find the card with text {text} in English(en-US) or Chinese(zh-CN)");
                 return;
             }
 
+            cardList = dictionary.Values.ToList();
             AddCardToListView(cardList);
         }
     }
