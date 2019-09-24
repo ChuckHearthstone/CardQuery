@@ -152,7 +152,7 @@ namespace CardQuery
 
         private void AddCardToListView(List<Card> tempCards)
         {
-            var cards = tempCards.OrderBy(x => x.Cost);
+            var cards = tempCards.OrderBy(x => x.Cost).ThenBy(x => x.Name);
             foreach (var card in cards)
             {
                 CardName cardName = new CardName
