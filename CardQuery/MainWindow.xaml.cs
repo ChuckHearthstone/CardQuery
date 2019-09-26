@@ -93,7 +93,8 @@ namespace CardQuery
             }
 
             var cards = Cards.All.Values;
-            var cardList = cards.Where(x => x.Id.ToLower(CultureInfo.InvariantCulture).Contains(id)).ToList();
+            id = id.ToLowerInvariant();
+            var cardList = cards.Where(x => x.Id.ToLowerInvariant().Contains(id)).ToList();
             if (cardList.Count == 0)
             {
                 MessageBox.Show($"Can not find the card with id {id}");
