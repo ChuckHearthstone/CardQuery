@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -91,14 +92,15 @@ namespace CardQuery
                 id = id.Replace(prefix, string.Empty);
             }
 
-            if (!Cards.All.ContainsKey(id))
+            var cards = Cards.All.Values;
+            var cardList = cards.Where(x => x.Id.ToLower(CultureInfo.InvariantCulture).Contains(id)).ToList();
+            if (cardList.Count == 0)
             {
                 MessageBox.Show($"Can not find the card with id {id}");
                 return;
             }
 
-            Card card = Cards.All[id];
-            AddCardToListView(new List<Card> {card});
+            AddCardToListView(cardList);
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
