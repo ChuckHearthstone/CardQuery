@@ -20,7 +20,7 @@
             <Button Content="Query" HorizontalAlignment="Left" Margin="211,43,0,0" VerticalAlignment="Top" Width="75" Name="ButtonCardName" Click="ButtonCardName_Click"/>
             <Label Content="CardText:" HorizontalAlignment="Left" Margin="7,71,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.553,0.5" />
             <TextBox HorizontalAlignment="Left" Height="23" Margin="74,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="TextBoxCardText" KeyUp="TextBoxCardText_OnKeyUp"/>
-            <ListView HorizontalAlignment="Left" Height="349" Margin="10,99,0,0" VerticalAlignment="Top" Width="276" Name="ListViewCardList" PreviewMouseLeftButtonUp="ListViewCardList_PreviewMouseLeftButtonUp">
+            <ListView HorizontalAlignment="Left" Height="349" Margin="10,99,0,0" VerticalAlignment="Top" Width="276" Name="ListViewCardList" PreviewMouseLeftButtonUp="ListViewCardList_PreviewMouseLeftButtonUp" KeyUp="ListViewCardList_KeyUp" KeyDown="ListViewCardList_KeyDown">
                 <ListView.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="Copy CardId" Click="MenuItem_OnClick"/>

@@ -172,6 +172,7 @@ namespace CardQuery
             {
                 ListViewCardList.SelectedIndex = 0;
                 ListViewCardList_PreviewMouseLeftButtonUp(null, null);
+                ListViewCardList.Focus();
             }
         }
 
@@ -260,6 +261,16 @@ namespace CardQuery
 
             cardList = dictionary.Values.ToList();
             AddCardToListView(cardList);
+        }
+
+        private void ListViewCardList_KeyUp(object sender, KeyEventArgs e)
+        {
+            ListViewCardList_PreviewMouseLeftButtonUp(null, null);
+        }
+
+        private void ListViewCardList_KeyDown(object sender, KeyEventArgs e)
+        {
+            ListViewCardList_PreviewMouseLeftButtonUp(null, null);
         }
     }
 }
