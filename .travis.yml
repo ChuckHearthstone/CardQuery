@@ -1,0 +1,9 @@
+addons:
+  sonarcloud:
+    organization: "chuckhearthstone"
+    token:
+      secure: "seIsA4vm4806mWkLdgVImowCu/QLhesLrUnUWmaSTfqp1rLExDdK7kpOvp8MHCMw4higostgneU4xpcwesDpa6DsqwSXslkC4KcOwraUmRhpZA0Hg3iTId7g/OTZmSUUB0u/eMqhZTXon9NKiNu+OPRua3XIjgqayTweTFm27vK8feDzgOiMKLyuLXnQs4CNbW/8v0tj78DMPt1XMgzhNi+Cio6w0g67dzzu5tyfE6FGjaAoERMuDMB6MeViT7XtDJFrCc6uaKqh855f89xzq6NMbhlN3ReAJlw0/B/JBsu9Jjl6tgHNafNd2w8lU3vx2v2vKUzUFxFLUEYKJSzVGviPBOPlakNeZs9R6IUOVsgqSJ2QUPi8s3ivxRkgNn8N9zGEa68AaDu6q0vuXCFkedmnw6dxy66IgiNfNAr8419SYXirxpsuiv80wvOLnuZecjgXJrvMF6a1S5Slv1ytkGPBm3+pQtmdrqAJKEd/MIUIklhFfNZDNPnVAPpRe0kj2StAuAHtZP3MvkBQhpuOL84DVDB+FxKx52ChV7uIwIt+XJIMogetRCPYKPZvleZyAeXLFFbATPDINVKiHUl2nG9P4FLiQPwwN+eNFUNp1KP2qxv3Nxa990ZFOgUtRGo6yJTlyYV1KXBYonGksrkvzsF/wqaBp+CV+viQzI1VLdo=" # encrypted value of your token
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - sonar-scanner
