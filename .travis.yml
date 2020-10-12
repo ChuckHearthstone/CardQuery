@@ -1,3 +1,6 @@
+language: csharp
+mono: latest
+
 addons:
   sonarcloud:
     organization: "chuckhearthstone"
@@ -7,3 +10,9 @@ addons:
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
   - sonar-scanner
+
+before_install:
+- bash ./tools/travis-ci-install-sonar.sh
+
+script:
+ - bash ./tools/travis-ci-build.sh
