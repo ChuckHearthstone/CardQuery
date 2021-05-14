@@ -29,15 +29,12 @@ assembly_info:
   assembly_version: '{version}'
 
 after_build:
-  - cd %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\
-  - mkdir CardQuery
-  - cd %configuration%\
+  - cd %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\
   - ls -al
-  - find "." -name "*.dll" -exec cp {} ..\\CardQuery\\ \;
-  - ls ..\CardQuery
-  - find . -name \*.exe -exec cp {} ..\\CardQuery\\ \;
-  - find . -name \*.config -exec cp {} ..\\CardQuery\\ \;
+  - rm -r CardQuery.pdb
+  - rm -r Newtonsoft.Json.xml
   - cd ..
+  - mv %configuration% CardQuery
   - 7z a CardQuery-%zip_file%.zip .\CardQuery
 
 for:
