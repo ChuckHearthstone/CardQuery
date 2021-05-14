@@ -29,7 +29,14 @@ assembly_info:
   assembly_version: '{version}'
 
 after_build:
-  - 7z a CardQuery-%zip_file%.zip %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.dll %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.exe %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\*.config 
+  cd %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\
+  mkdir CardQuery
+  cd %configuration%\
+  find . -name \*.dll -exec cp {} ..\CardQuery \;
+  find . -name \*.exe -exec cp {} ..\CardQuery \;
+  find . -name \*.config -exec cp {} ..\CardQuery \;
+  cd ..
+  - 7z a CardQuery-%zip_file%.zip .\CardQuery
 
 for:
 - branches:
