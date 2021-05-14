@@ -29,14 +29,13 @@ assembly_info:
   assembly_version: '{version}'
 
 after_build:
-  - pwd
   - cd %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\
-  - pwd
   - rm -r CardQuery.pdb
   - rm -r Newtonsoft.Json.xml
   - cd ..
   - mv %configuration% CardQuery
   - 7z a CardQuery-%zip_file%.zip .\CardQuery
+  - cp CardQuery-%zip_file%.zip ..\..\CardQuery-%zip_file%.zip
 
 for:
 - branches:
