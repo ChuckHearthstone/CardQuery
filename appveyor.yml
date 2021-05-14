@@ -32,6 +32,7 @@ after_build:
   - cd %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\
   - mkdir CardQuery
   - cd %configuration%\
+  - ls -al
   - find . -name \*.dll -exec cp {} ..\CardQuery \;
   - find . -name \*.exe -exec cp {} ..\CardQuery \;
   - find . -name \*.config -exec cp {} ..\CardQuery \;
