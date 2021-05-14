@@ -29,8 +29,9 @@ assembly_info:
   assembly_version: '{version}'
 
 after_build:
+  - pwd
   - cd %APPVEYOR_BUILD_FOLDER%\CardQuery\bin\%configuration%\
-  - ls -al
+  - pwd
   - rm -r CardQuery.pdb
   - rm -r Newtonsoft.Json.xml
   - cd ..
