@@ -33,8 +33,8 @@ after_build:
   - mkdir CardQuery
   - cd %configuration%\
   - ls -al
-  - find "." -name "*.dll"
-  - find . -name \*.dll -exec cp {} ..\\CardQuery\\ \;
+  - find "." -name "*.dll" -exec cp {} ..\\CardQuery\\ \;
+  - ls ..\CardQuery
   - find . -name \*.exe -exec cp {} ..\\CardQuery\\ \;
   - find . -name \*.config -exec cp {} ..\\CardQuery\\ \;
   - cd ..
