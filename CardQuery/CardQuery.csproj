@@ -38,8 +38,8 @@
     <ApplicationIcon>Resources\3004057.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Chuck-HearthDb, Version=22.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Chuck-HearthDb.22.4.0\lib\netstandard2.0\Chuck-HearthDb.dll</HintPath>
+    <Reference Include="Chuck-HearthDb, Version=22.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Chuck-HearthDb.22.6.0\lib\netstandard2.0\Chuck-HearthDb.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
